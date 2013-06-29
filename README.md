@@ -15,7 +15,7 @@ Usage
 ====================
 Ideally you should run the script from an empty directory so that things don't get messy after the script runs to completion. You can run the script with
 > python BTNsnatcher.py
-from the directory where the script is stored.
+<from the directory where the script is stored.
 
 *__Important note__*
 If you want to be gentle on the site and want the script to take less time to complete operation, please set your torrents per page and snatches per page to the value of "100" from your profile editing page. 
@@ -37,5 +37,4 @@ To Do
 ====================
 * Code cleanup
 * Ability to move torrents to a specified watch folder batch by batch
-* Ability to predict how much time it will take for the user to accumulate enough points for the Master class.
 * Any reasonable suggestions
