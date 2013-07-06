@@ -13,6 +13,7 @@ class User(object):
 		self.password = password
 		self.snatchedList = slist
 		self.torrentList = tlist
+		self.spaceNeeded = 0
 		self.session = requests.session()
 		self._login()
 		### THIS MIGHT NEED TO CHANGE
@@ -139,7 +140,6 @@ class User(object):
 			print "Downloading: %s --- Size: %0.3f GB" % (torrent[0], torrent[1])
 			f = open(filename, "ab+")
 			down = self.session.get(downloadURL % torrent[2])
-			self.page = down.text
 			f.write(down.content)
 			f.close()
 			self.spaceNeeded += torrent[1]
@@ -275,12 +275,12 @@ class User(object):
 
 
 def main():
-	print "Welcome to BTNsnatcher" 
-	print "*" * 50
-	username = raw_input("BTN username: ")
-	password = raw_input("BTN password: ")
-	print
 	try:
+		print "Welcome to BTNsnatcher" 
+		print "*" * 50
+		username = raw_input("BTN username: ")
+		password = raw_input("BTN password: ")
+		print
 		user = User(username, password)
 		print "Your user ID: %s" % user.userID
 		print
