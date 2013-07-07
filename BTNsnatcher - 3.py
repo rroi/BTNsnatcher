@@ -103,11 +103,11 @@ class User(object):
 			links = data[2].find_all("a")
 			torrentSize = float(data[4].string.split()[0])
 			sizeUnit = data[4].string.split()[1].lower()
-			torrentName = links[2].string
-			torrentID = links[3].get("href").split("=")[2]
-			if ((sizeUnit == "mb") and torrentSize <100) or torrentID in self.snatchedList:
+			if ((sizeUnit == "mb") and torrentSize <100) or torrentID in self.snatchedList or (sizeUnit == "kb"):
 				continue
 			else:
+				torrentName = links[2].string
+				torrentID = links[3].get("href").split("=")[2]
 				torrentSize = torrentSize * int(sizeUnit == "mb") / 1024.0 or torrentSize
 				self.torrentList.append((torrentName, torrentSize, torrentID))
 				self.needed -= 1
